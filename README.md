@@ -4,7 +4,14 @@
 **本项目受 https://github.com/sean529/robFood.git 启发，以下使用方法大多来自该项目；
 使用GPLv3协议，请开发者自觉遵守**
 
-# 使用
+# APK发行版
+https://github.com/chansonyhu/GroceryAssistant/releases/download/v1.0/Dingdong-v1.0.apk
+
+==============
+
+由于本人精力有限，代码未经过充分的测试，若在您的设备上无法正常运行，则需修改源码来使用；大致步骤如下：
+
+# 基于源码使用
 主要依赖于 AutoJsPro 开发 https://pro.autojs.org/  
 相关调试文档可参考 https://pro.autojs.org/docs/#/zh-cn/?id=%e7%bb%bc%e8%bf%b0  
 1. 安装 vscode 插件 Auto.js-Pro-Ext
