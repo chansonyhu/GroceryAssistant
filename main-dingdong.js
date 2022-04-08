@@ -1,8 +1,4 @@
-// const appName = "美团买菜";
-
 const appName = "叮咚买菜";
-
-
 launchApp(appName);
 let interval = 20
 sleep(interval);
