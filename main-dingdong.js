@@ -11,7 +11,7 @@ auto.waitFor()
 // 点击结算
 const clickSettle = () => {
   id('btn_submit').click()
-  sleep(200)
+  sleep(1000)
 }
 // 点击我知道了
 const clickKnow = () => {

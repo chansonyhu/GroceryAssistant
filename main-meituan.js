@@ -1,16 +1,15 @@
 const appName = "美团买菜";
 
 
-
 launchApp(appName);
-let interval = 79;
+let interval = 110;
 let short_interval = 20;
 sleep(interval);
 auto.waitFor;
 // 点击结算
 const clickSettle = () => {
-   // id("vs_main_tab_home").findOnce().click()
-   // id("img_shopping_cart").findOnce().parent().click()
+  // id("vs_main_tab_home").findOnce().click()
+  // id("img_shopping_cart").findOnce().parent().click()
 
   className("android.widget.TextView").textStartsWith("结算(").findOne().parent().click();
   //settleBtn.click();
@@ -22,22 +21,21 @@ const clickKnow = () => {
   //  className("android.widget.TextView").text("我知道了").findOne().parent().click();
   // className("android.view.View").depth(15).findOne().click()
   if (textStartsWith('我知道了').exists()) {
-    sleep(20);
-    try{
-        textStartsWith("我知道了").findOne().parent().click()
-    //className("android.widget.TextView").text("我知道了").findOne(20).parent().click();
-    } catch (e) {
-        
-    }
+    sleep(short_interval);
+    try {
+      textStartsWith("我知道了").findOnce().parent().click();
+      // className("android.widget.TextView").text("我知道了").findOnce().parent().click();
+    } catch (e) {sleep(short_interval);}
 
   } else if (textStartsWith('返回购物车').exists()) {
-    sleep(20);
-    try{
-    className("android.widget.TextView").text("返回购物车").findOne(20).parent().click();
-    } catch (e) {}
+    sleep(short_interval);
+    try {
+      // className("android.widget.TextView").text("返回购物车").findOnce().parent().click();
+      textStartsWith("返回购物车").findOnce().parent().click();
+    } catch (e) {sleep(short_interval);}
   }
-  
-  sleep(interval);
+  // sleep(50)
+  sleep(120);
 };
 //点击放弃机会
 const clickGiveup = () => {
@@ -69,7 +67,7 @@ const hasText = (text) => {
 const start = () => {
   // 是否有结算按钮
   sleep(interval);
-  if (hasText('很抱歉，当前不在') || hasText('配送运力已约满') || hasText("前方拥堵")) {
+  if (hasText('很抱歉，当前不在') || hasText('配送运力已约满') || hasText('前方拥堵')) {
     sleep(interval);
     clickKnow();
     start();
@@ -81,6 +79,7 @@ const start = () => {
     clickPay();
     sleep(interval);
     if (hasText('前方拥堵')) {
+      sleep(interval);
       clickKnow();
     }
     start();
@@ -88,7 +87,6 @@ const start = () => {
     while (hasText("确认并支付")) {
       clickConfirm();
       sleep(short_interval);
-      // toast('抢到了')
     }
     start();
     toast('抢到了');
